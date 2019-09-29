@@ -17,7 +17,7 @@ func NewNode(value interface{}) *Node {
 
 func NewLinkedLIst() *LinkedList {
 	newLinkedList := LinkedList{nil, 0}
-	node := NewNode()
+	node := NewNode(nil)
 	newLinkedList.Head = node
 	return &newLinkedList
 }
