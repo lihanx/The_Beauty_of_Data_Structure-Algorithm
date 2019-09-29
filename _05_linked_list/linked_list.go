@@ -10,8 +10,8 @@ type LinkedList struct {
 	Length int
 }
 
-func NewNode() *Node {
-	node := Node{nil, nil}
+func NewNode(value interface{}) *Node {
+	node := Node{value, nil}
 	return &node
 }
 
