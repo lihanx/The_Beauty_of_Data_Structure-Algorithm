@@ -82,12 +82,12 @@ func (this *LinkedList) InsertBefore(posValue, newValue interface{}) int {
 }
 
 // 根据index查找节点
-func (this *LinkedList) Find(pos int) *Node {
-	if pos < 0 || pos >= this.Length {
+func (this *LinkedList) Get(idx int) *Node {
+	if idx < 0 || idx >= this.Length {
 		return nil
 	}
 	node := this.Head
-	for i := -1; i < pos; i++ {
+	for i := -1; i <= idx; i++ {
 		node = node.Next
 	}
 	return node
