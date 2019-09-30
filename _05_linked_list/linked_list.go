@@ -36,6 +36,7 @@ func (this *LinkedList) Insert(idx int, value interface{}) int {
 	node := NewNode(value)
 	node.Next = current.Next
 	current.Next = node
+	this.Length++
 	return idx
 }
 
@@ -50,6 +51,7 @@ func (this *LinkedList) Delete(value interface{}) *Node {
 		if current.Value == value {
 			before.Next = current.Next
 			current.Next = nil
+			this.Length--
 			return current
 		}
 		before = current
@@ -70,6 +72,7 @@ func (this *LinkedList) InsertBefore(posValue, newValue interface{}) int {
 			node := NewNode(newValue)
 			node.Next = current
 			before.Next = node
+			this.Length++
 			return idx
 		}
 		before = current
