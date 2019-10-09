@@ -1,4 +1,4 @@
-package _05_linked_list
+package _06_linked_list
 
 type Node struct {
 	Value interface{}
