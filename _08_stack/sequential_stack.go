@@ -2,16 +2,16 @@ package _08_stack
 
 // 顺序栈
 type SequentialStack struct {
-	Stack []interface{}
+	Items []interface{}
 	Length int
 	MaxLength int
 }
 
 // 创建顺序栈
 func NewSequentialStack(maxLength int) *SequentialStack {
-	stack := make([]interface{}, maxLength, maxLength)
+	Items := make([]interface{}, maxLength, maxLength)
 	seqStack := SequentialStack{
-		Stack:     stack,
+		Items:     Items,
 		Length:    maxLength,
 		MaxLength: maxLength,
 	}
@@ -23,7 +23,7 @@ func (this *SequentialStack) pop() interface{} {
 	if this.Length == 0 {
 		return nil
 	}
-	value := this.Stack[this.Length-1]
+	value := this.Items[this.Length-1]
 	this.Length--
 	return value
 }
@@ -33,7 +33,7 @@ func (this *SequentialStack) push(value interface{}) int {
 	if this.Length == this.MaxLength {
 		return -1
 	}
-	this.Stack[this.Length] = value
+	this.Items[this.Length] = value
 	this.Length++
 	return this.Length
 }
