@@ -4,17 +4,17 @@ package _09_queue
 // 实现基于数组的循环队列
 
 type ArrayQueue struct {
-	Items []interface{}
+	Items     []interface{}
 	MaxLength int
-	Head int
-	Tail int
+	Head      int
+	Tail      int
 }
 
 func NewArrayQueue(maxLength int) *ArrayQueue {
 	items := make([]interface{}, maxLength, maxLength)
 	aq := ArrayQueue{
 		Items:     items,
-		MaxLength:    0,
+		MaxLength: 0,
 		Head:      0,
 		Tail:      0,
 	}
@@ -32,12 +32,13 @@ func (this *ArrayQueue) dequeue() interface{} {
 }
 
 // 入队
+// 为避免频繁数据搬移，根据队列长度固定的特点
+// 使用取模的周期运算可以很好的实现无需数据搬移的空间循环利用
 func (this *ArrayQueue) enqueue(value interface{}) bool {
-	if (this.Tail + 1) % this.MaxLength == this.Head {
+	if (this.Tail+1)%this.MaxLength == this.Head {
 		return false
 	}
 	this.Items[this.Tail] = value
 	this.Tail = (this.Tail + 1) % this.MaxLength
 	return true
 }
-
